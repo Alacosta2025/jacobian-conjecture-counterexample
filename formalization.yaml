@@ -15,12 +15,12 @@ project:
 
 classification:
   arxiv:
-    - 14R15
+    - math.AC
 
 sources:
   - title: Jacobian conjecture
     url: https://en.wikipedia.org/wiki/Jacobian_conjecture
-    relationship: background
+    relationship: independently-proves
 
 automation:
   methods:
