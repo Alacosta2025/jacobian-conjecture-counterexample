@@ -16,6 +16,8 @@ project:
 classification:
   arxiv:
     - math.AC
+  msc2020:
+    - 14R15
 
 sources:
   - title: Jacobian conjecture
