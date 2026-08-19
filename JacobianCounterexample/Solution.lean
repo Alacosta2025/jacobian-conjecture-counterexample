@@ -17,18 +17,24 @@ noncomputable def F_e (e : Rat) (p : Rat × Rat × Rat) : Rat × Rat × Rat :=
 /-- The Jacobian determinant of `F_e` is identically the nonzero constant `-e`. -/
 theorem jacobian_det_family (e x y z : Rat) :
     (3*x^2*y^3*z + 18*x*x*y^4 + 6*x*x*y^2*z + 21*x*y^3 + 3*y*x*z)
-      * ((2*x^3*y*z + 27*x^2*y^2 + 2*x^2*z + 24*x*y + 1) * (-(e/6)*x^3))
-      - (x^3*y^2 + 2*x^2*y + x) * (-(3*e/2)*x^2))
-  - (3*x^3*y^2*z + 36*x^2*y^3 + 6*x*x*y*z + 63*x*x*y^2 + 3*x*x*z + 24*y)
-      * ((3*x^2*y^2*z + 18*x*x*y^3 + 4*x*x*y*z + 12*y^2 + z) * (-(e/6)*x^3))
-      - (x^3*y^2 + 2*x^2*y + x) * (e - 3*e*x*y - (e/2)*x^2*z))
-  + (x^3*y^3 + 3*x*x*y^2 + 3*x*x*y + 1)
+      * ((2*x^3*y*z + 27*x^2*y^2 + 2*x^2*z + 24*x*y + 1) * (-(e/6)*x^3)
+         - (x^3*y^2 + 2*x^2*y + x) * (-(3*e/2)*x^2))
+    - (3*x^3*y^2*z + 36*x^2*y^3 + 6*x*x*y*z + 63*x*x*y^2 + 3*x*x*z + 24*y)
+      * ((3*x^2*y^2*z + 18*x*x*y^3 + 4*x*x*y*z + 12*y^2 + z) * (-(e/6)*x^3)
+         - (x^3*y^2 + 2*x^2*y + x) * (e - 3*e*x*y - (e/2)*x^2*z))
+    + (x^3*y^3 + 3*x*x*y^2 + 3*x*x*y + 1)
       * ((3*x^2*y^2*z + 18*x*x*y^3 + 4*x*x*y*z + 12*y^2 + z) * (-(3*e/2)*x^2)
-      - (2*x^3*y*z + 27*x^2*y^2 + 2*x^2*z + 24*x*y + 1) * (e - 3*e*x*y - (e/2)*x^2*z))
-  = -e := by
+         - (2*x^3*y*z + 27*x^2*y^2 + 2*x^2*z + 24*x*y + 1) * (e - 3*e*x*y - (e/2)*x^2*z))
+    = -e := by
   ring
 
-/-- For any nonzero `e`, `F_e` is not injective: it identifies three distinct points. -/
+/-- For any nonzero `e`, `F_e` is not injective: it identifies two distinct points
+    `p = (0, 0, -3/4)` and `q = (1, -3/2, 39/2)`. -/
 theorem F_e_not_injective (e : Rat) (he : e ≠ 0) :
     ∃ p q : Rat × Rat × Rat, p ≠ q ∧ F_e e p = F_e e q := by
-  sorry
+  refine ⟨(0, 0, -3/4), (1, -3/2, 39/2), ?_, ?_⟩
+  · intro h
+    have h1 : (0 : Rat) = 1 := congrArg Prod.fst h
+    norm_num at h1
+  · simp only [F_e, f1_e, f2_e, f3_e]
+    norm_num
