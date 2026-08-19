@@ -1,0 +1,20 @@
+id: jacobian-conjecture-counterexample
+title: A one-parameter family of counterexamples to the 3D Jacobian Conjecture
+author: Alacosta2025
+statement: >
+  For each nonzero rational e, there exists a polynomial map F_e : Q^3 -> Q^3
+  whose Jacobian determinant is the nonzero constant -e, yet F_e fails to be
+  injective (globally invertible) on Q^3.
+formalization:
+  language: lean4
+  mathlib: true
+  challenge_file: JacobianCounterexample/Challenge.lean
+  solution_file: JacobianCounterexample/Solution.lean
+  main_theorems:
+    - jacobian_det_family
+    - F_e_not_injective
+status: solution_has_sorry
+notes: >
+  jacobian_det_family is fully proved by `ring`. F_e_not_injective is stated
+  but not yet closed (contains `sorry`); it asserts non-injectivity of the
+  family, which is the counterexample claim to be completed.
