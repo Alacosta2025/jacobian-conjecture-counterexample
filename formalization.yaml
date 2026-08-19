@@ -18,12 +18,13 @@ classification:
     - 14R15
 
 sources:
-  - description: Jacobian Conjecture background
+  - title: Jacobian conjecture
     url: https://en.wikipedia.org/wiki/Jacobian_conjecture
+    relation: background reference for the conjecture statement
 
 automation:
   methods:
-    - Lean 4 `ring` tactic for polynomial identity verification
+    - name: Lean 4 ring tactic used to verify the polynomial Jacobian identity
 
 review:
   status: pending
