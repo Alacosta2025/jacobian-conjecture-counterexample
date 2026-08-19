@@ -20,11 +20,11 @@ classification:
 sources:
   - title: Jacobian conjecture
     url: https://en.wikipedia.org/wiki/Jacobian_conjecture
-    relation: background reference for the conjecture statement
+    relationship: background
 
 automation:
   methods:
-    - name: Lean 4 ring tactic used to verify the polynomial Jacobian identity
+    - method: manual
 
 review:
   status: pending
