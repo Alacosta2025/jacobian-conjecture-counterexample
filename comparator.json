@@ -1,0 +1,10 @@
+{
+  "id": "jacobian-conjecture-counterexample",
+  "challenge_theorem": "jacobian_det_family",
+  "target_theorem": "F_e_not_injective",
+  "language": "lean4",
+  "dependencies": ["mathlib"],
+  "expected_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "forbidden_axioms": ["sorryAx"],
+  "pass_condition": "no 'sorry' or 'sorryAx' in the compiled solution file"
+}
