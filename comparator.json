@@ -2,5 +2,5 @@
   "challenge_module": "JacobianCounterexample.Challenge",
   "solution_module": "JacobianCounterexample.Solution",
   "theorem_names": ["jacobian_det_family", "F_e_not_injective"],
-  "allowed_axioms": ["propext", "Classical.choice", "Quot.sound"]
+  "permitted_axioms": ["propext", "Classical.choice", "Quot.sound"]
 }
