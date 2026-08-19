@@ -11,15 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: leanprover/lean-action@v1
-        with:
-          lake-package-directory: .
-          build: false
-          test: false
-          lint: false
-      - name: Run lake update
+      - name: Install elan
         run: |
-          ~/.elan/bin/lake update
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Run lake update
+        run: lake update
       - name: Commit manifest
         run: |
           git config user.name "github-actions[bot]"
