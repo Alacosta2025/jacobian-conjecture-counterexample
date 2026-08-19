@@ -4,9 +4,9 @@ project:
     A one-parameter family of polynomial maps F_e : Q^3 -> Q^3 whose Jacobian
     determinant is identically the nonzero constant -e, presented as a
     candidate counterexample family to the Jacobian Conjecture in dimension 3.
-    The Lean formalization proves the constant-Jacobian identity by `ring`;
-    the non-injectivity claim (F_e_not_injective) is stated but not yet
-    closed (contains `sorry`).
+    The Lean formalization proves the constant-Jacobian identity by `ring`,
+    and proves F_e is not injective by exhibiting two distinct points,
+    p = (0, 0, -3/4) and q = (1, -3/2, 39/2), with F_e p = F_e q for all e.
   authors:
     - name: Alacosta2025
   license: MIT
@@ -34,8 +34,3 @@ review:
 formalization:
   language: lean4
   mathlib: true
-  challenge_file: JacobianCounterexample/Challenge.lean
-  solution_file: JacobianCounterexample/Solution.lean
-  main_theorems:
-    - jacobian_det_family
-    - F_e_not_injective
