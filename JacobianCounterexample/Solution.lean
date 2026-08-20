@@ -26,7 +26,7 @@ theorem jacobian_det_family (e x y z : Rat) :
       * ((3*x^2*y^2*z + 18*x*x*y^3 + 4*x*x*y*z + 12*y^2 + z) * (-(3*e/2)*x^2)
          - (2*x^3*y*z + 27*x^2*y^2 + 2*x^2*z + 24*x*y + 1) * (e - 3*e*x*y - (e/2)*x^2*z))
     = -e := by
-  ring
+  ring_nf
 
 /-- For any nonzero `e`, `F_e` is not injective: it identifies two distinct points
     `p = (0, 0, -3/4)` and `q = (1, -3/2, 39/2)`. -/
@@ -37,4 +37,4 @@ theorem F_e_not_injective (e : Rat) (he : e ≠ 0) :
     have h1 : (0 : Rat) = 1 := congrArg Prod.fst h
     norm_num at h1
   · simp only [F_e, f1_e, f2_e, f3_e]
-    norm_num
+    ring_nf
